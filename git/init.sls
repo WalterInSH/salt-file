@@ -4,6 +4,7 @@ git_install:
 
 git_configure:
   cmd.run:
+    - user: walter
     - name: |
         git config --global user.name "Walter"
         git config --global user.email coolwaterever@gmail.com
