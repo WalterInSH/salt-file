@@ -4,10 +4,10 @@ git_install:
 
 git_configure:
   cmd.run:
-    - user: walter
+    - user: {{ pillar['user']['name'] }}
     - name: |
-        git config --global user.name "Walter"
-        git config --global user.email coolwaterever@gmail.com
+        git config --global user.name "{{ pillar['user']['github'] }}"
+        git config --global user.email {{ pillar['user']['mail'] }}
         git config --global push.default simple
         git config --global core.editor "vim"
         git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"

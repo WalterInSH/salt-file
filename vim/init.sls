@@ -5,15 +5,15 @@ vim_install:
 vim_config:
   git.latest:
     - name: git@github.com:WalterInSH/vim_cfg.git
-    - user: walter
-    - target: /home/walter/.vim
+    - user: {{ pillar['user']['name'] }}
+    - target: {{ pillar['user']['home'] }}/.vim
     - submodules: True
     - require:
       - pkg: git_install
   
-/home/walter/.vimrc:
+{{ pillar['user']['home'] }}/.vimrc:
   file.symlink:
-    - user: walter
-    - target: /home/walter/.vim/cfg/vimrc
+    - user: {{ pillar['user']['name'] }}
+    - target: {{ pillar['user']['home'] }}/.vim/cfg/vimrc
     - require:
       - git: vim_config
