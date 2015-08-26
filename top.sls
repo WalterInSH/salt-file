@@ -5,3 +5,4 @@ base:
     - python
     - nodejs
     - tree
+    - vim
