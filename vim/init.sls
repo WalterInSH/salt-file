@@ -4,7 +4,7 @@ vim_install:
 
 vim_config:
   git.latest:
-    - name: git@github.com:WalterInSH/vim_cfg.git
+    - name: https://github.com/WalterInSH/vim_cfg.git
     - user: {{ pillar['user']['name'] }}
     - target: {{ pillar['user']['home'] }}/.vim
     - submodules: True
