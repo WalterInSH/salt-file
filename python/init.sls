@@ -3,6 +3,7 @@ python_pkgs:
     - installed
     - names:
       - python
+      - python-pip
 
 pip_pkgs:
   pip.installed:
