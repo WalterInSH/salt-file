@@ -4,11 +4,13 @@ vim_install:
 
 vim_config:
   git.latest:
-    - name: https://github.com/WalterInSH/vim_cfg.git
+    - name: git@github.com:WalterInSH/vim_cfg.git
+    - rev: master
     - user: {{ pillar['user']['name'] }}
     - target: {{ pillar['user']['home'] }}/.vim
     - submodules: True
-    - require:
+    - identity: {{ pillar['user']['home'] }}/.ssh/id_rsa
+      - require:
       - pkg: git_install
   
 {{ pillar['user']['home'] }}/.vimrc:

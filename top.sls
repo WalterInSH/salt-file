@@ -4,5 +4,5 @@ base:
     - ruby
     - python
     - nodejs
-    - tree
+    - utils
     - vim

@@ -11,23 +11,20 @@ webupd8team_java:
       - pkg: python_software_properties_install
       
 # Automatically accept the oracle license
-#Accept Oracle Terms:
-#  debconf.set:
-#    - name: oracle-java7-installer 
-#    - data: 
-#        'shared/accepted-oracle-license-v1-1': {'type': 'boolean', 'value': True }
-
 Accept Oracle Terms:
-  cmd.run:
-      # debconf is used to track whether or not you've accepted the license, we just lie and say we have
-          - name: "(echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections) && (echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections)"
-              # in this scenario, we've already accepted the license, so don't pollute debconf!
-                  - unless: 'debconf-get-selections | grep -e "debconf\\s*shared/accepted-oracle-license-v1-1\\s*select\\s*true"'
-                      
+  debconf.set:
+    - name: oracle-java8-installer 
+    - data: 
+        'shared/accepted-oracle-license-v1-1': {'type': 'boolean', 'value': True }
 
 java_install:
   pkg.installed:
-    - name: oracle-java7-installer 
+    - name: oracle-java8-installer 
     - require:
       - pkgrepo: webupd8team_java
-      - cmd: Accept Oracle Terms
+      - debconf: Accept Oracle Terms
+
+maven:
+  pkg.installed:
+    - name: maven
+    - require: java_install
