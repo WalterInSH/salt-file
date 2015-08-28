@@ -12,5 +12,3 @@ pip_pkgs:
       - stormssh
       - shadowsocks
       - Glances
-    - require:
-      - pkg: python_pkgs

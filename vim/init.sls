@@ -17,5 +17,3 @@ vim_config:
   file.symlink:
     - user: {{ pillar['user']['name'] }}
     - target: {{ pillar['user']['home'] }}/.vim/cfg/vimrc
-    - require:
-      - git: vim_config

@@ -1,5 +1,6 @@
 base:
   '*':
+    - folders
     - git
     - ruby
     - python
