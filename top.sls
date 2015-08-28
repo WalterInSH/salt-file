@@ -1,10 +1,12 @@
 base:
   '*':
     - folders
+    - utils
     - git
     - ruby
     - python
     - nodejs
-    - utils
     - vim
     - java
+    - tomcat
+    - idea
