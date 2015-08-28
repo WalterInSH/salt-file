@@ -1,7 +1,7 @@
 wget:
-  pkg.installed
+  pkg.installed:
     - name: wget
 
 tree:
-  pkg.installed
+  pkg.installed:
     - name: tree
