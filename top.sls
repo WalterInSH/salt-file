@@ -10,3 +10,4 @@ base:
     - java
     - tomcat
     - idea
+    - chromium
