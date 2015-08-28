@@ -11,4 +11,3 @@ pip_pkgs:
       - httpie
       - stormssh
       - shadowsocks
-      - Glances
