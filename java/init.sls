@@ -13,16 +13,19 @@ webupd8team_java:
 # Automatically accept the oracle license
 Accept Oracle Terms:
   debconf.set:
-    - name: oracle-java8-installer 
+    - name: oracle-java7-installer 
     - data: 
         'shared/accepted-oracle-license-v1-1': {'type': 'boolean', 'value': True }
 
 java_install:
-  pkg.installed:
-    - name: oracle-java8-installer 
-    - require:
-      - pkgrepo: webupd8team_java
-      - debconf: Accept Oracle Terms
+#https://github.com/saltstack/salt/issues/26702
+#  pkg.installed:
+#    - name: oracle-java7-installer 
+   cmd.run:
+     - name: apt-get install -y --force-yes oracle-java7-installer
+     - require:
+       - pkgrepo: webupd8team_java
+       - debconf: Accept Oracle Terms
 
 maven:
   pkg.installed:
