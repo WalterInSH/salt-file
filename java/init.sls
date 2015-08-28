@@ -21,13 +21,13 @@ java_install:
 #https://github.com/saltstack/salt/issues/26702
 #  pkg.installed:
 #    - name: oracle-java7-installer 
-   cmd.run:
-     - name: apt-get install -y --force-yes oracle-java7-installer
-     - require:
-       - pkgrepo: webupd8team_java
-       - debconf: Accept Oracle Terms
+  cmd.run:
+    - name: apt-get install -y --force-yes oracle-java7-installer
+    - require:
+      - pkgrepo: webupd8team_java
+      - debconf: Accept Oracle Terms
 
 maven:
   pkg.installed:
     - name: maven
-    - require: java_install
+    - cmd: java_install

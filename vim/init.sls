@@ -10,7 +10,7 @@ vim_config:
     - target: {{ pillar['user']['home'] }}/.vim
     - submodules: True
     - identity: {{ pillar['user']['home'] }}/.ssh/id_rsa
-      - require:
+    - require:
       - pkg: git_install
   
 {{ pillar['user']['home'] }}/.vimrc:

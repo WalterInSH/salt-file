@@ -6,3 +6,4 @@ base:
     - nodejs
     - utils
     - vim
+    - java
